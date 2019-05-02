@@ -1,7 +1,8 @@
 body {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  background-color: #fffff0
+  background-color: #fffff0;
+  font-family: 'Open sans', Arial, Helvetica, sans-serif;
 }
 
 .container{
@@ -13,17 +14,14 @@ body {
 
 /* NAVIGATION*/
 
-/* .navbar {
-  position: relative;
-  min-height: 50px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
+nav{
+  padding-left: 10% !important;
+  padding-right: 10% !important;
 }
 
-.navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
-} */
+.navbar{
+  background-color: #fffff0 !important;
+}
 
 #logo{
   height: 50px;
