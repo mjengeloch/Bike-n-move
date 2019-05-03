@@ -1,6 +1,4 @@
 body {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
   background-color: #fffff0;
   font-family: 'Open sans', Arial, Helvetica, sans-serif;
 }
@@ -12,7 +10,7 @@ body {
   margin-left: auto;
 }
 
-/* NAVIGATION*/
+/*NAVIGATION*/
 
 nav{
   padding-left: 10% !important;
@@ -25,4 +23,14 @@ nav{
 
 #logo{
   height: 50px;
+}
+
+/*HEADER*/
+header {
+  background: url(../images/Header.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
 }
