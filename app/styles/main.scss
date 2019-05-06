@@ -16,11 +16,16 @@ body {
   background-color: #fffff0;
   font-family: 'Open sans', Arial, Helvetica, sans-serif;
   color: #323232;
+  overflow-X: hidden;
 }
 
 h1, h2, h3{
   font-family: 'Nunito', 'Open sans', Arial, Helvetica, sans-serif;
   text-align: center;
+}
+
+h2{
+  color: #f56358;
 }
 
 /*NAVIGATION*/
@@ -42,14 +47,10 @@ nav{
 header {
   padding-top:70px; 
   background: url(../images/Header.png) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   height: 100vh;
   display: flex;
   align-items: center;
-  min-height: 500px;
 }
 
 #banniere{
@@ -68,9 +69,28 @@ h1{
   border: #fffff0 solid 3px;
 }
 
+.fa-chevron-down{
+  color: #fffff0;
+  font-size: 3em;
+  position: absolute;
+  top: 80%;
+}
+
+/* FONCTIONNEMENT */
+
+#vague{
+  position: relative;
+  width: 101%;
+  top:-100px;
+}
+
+#fonctionnement{
+  
+}
+
 /* [class*="col-"], footer {
   background-color: lightgreen;
-  border: 2px solid black;
+  outline: 2px solid black;
   border-radius: 6px;
   line-height: 40px;
   text-align: center;

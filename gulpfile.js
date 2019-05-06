@@ -33,7 +33,7 @@ function styles() {
     ]))
     .pipe($.if(!isProd, $.sourcemaps.write()))
     .pipe(dest('.tmp/styles'))
-    .pipe(server.reload({stream: true}));
+    .pipe(server.reload({ stream: true }));
 };
 
 function scripts() {
@@ -43,7 +43,7 @@ function scripts() {
     .pipe($.babel())
     .pipe($.if(!isProd, $.sourcemaps.write('.')))
     .pipe(dest('.tmp/scripts'))
-    .pipe(server.reload({stream: true}));
+    .pipe(server.reload({ stream: true }));
 };
 
 async function modernizr() {
@@ -78,7 +78,7 @@ async function modernizr() {
 const lintBase = files => {
   return src(files)
     .pipe($.eslint({ fix: true }))
-    .pipe(server.reload({stream: true, once: true}))
+    .pipe(server.reload({ stream: true, once: true }))
     .pipe($.eslint.format())
     .pipe($.if(!server.active, $.eslint.failAfterError()));
 }
@@ -93,13 +93,13 @@ function lintTest() {
 
 function html() {
   return src('app/*.html')
-    .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
-    .pipe($.if(/\.js$/, $.uglify({compress: {drop_console: true}})))
-    .pipe($.if(/\.css$/, $.postcss([cssnano({safe: true, autoprefixer: false})])))
+    .pipe($.useref({ searchPath: ['.tmp', 'app', '.'] }))
+    .pipe($.if(/\.js$/, $.uglify({ compress: { drop_console: true } })))
+    .pipe($.if(/\.css$/, $.postcss([cssnano({ safe: true, autoprefixer: false })])))
     .pipe($.if(/\.html$/, $.htmlmin({
       collapseWhitespace: true,
       minifyCSS: true,
-      minifyJS: {compress: {drop_console: true}},
+      minifyJS: { compress: { drop_console: true } },
       processConditionalComments: true,
       removeComments: true,
       removeEmptyAttributes: true,
@@ -125,8 +125,8 @@ function extras() {
     'app/*',
     '!app/*.html'
   ], {
-    dot: true
-  }).pipe(dest('dist'));
+      dot: true
+    }).pipe(dest('dist'));
 };
 
 function clean() {
@@ -135,7 +135,7 @@ function clean() {
 
 function measureSize() {
   return src('dist/**/*')
-    .pipe($.size({title: 'build', gzip: true}));
+    .pipe($.size({ title: 'build', gzip: true }));
 }
 
 const build = series(
