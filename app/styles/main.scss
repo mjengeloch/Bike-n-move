@@ -28,6 +28,13 @@ h2{
   color: #f56358;
 }
 
+hr{
+  border: solid 1px #f56358;
+  height: 0;
+  margin: auto;
+  width: 15%;
+}
+
 /*NAVIGATION*/
 
 nav{
@@ -73,19 +80,19 @@ h1{
   color: #fffff0;
   font-size: 3em;
   position: absolute;
-  top: 80%;
+  top: 85%;
 }
 
 /* FONCTIONNEMENT */
 
 #vague{
-  position: relative;
+  position: relative; //éviter absolute pour que l'élément reste en place
   width: 101%;
   top:-100px;
 }
 
 #fonctionnement{
-  
+  margin-top: -100px
 }
 
 /* [class*="col-"], footer {
