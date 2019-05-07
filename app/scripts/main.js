@@ -1,5 +1,19 @@
-console.log('\'Allo \'Allo!');
+$('.carousel').carousel({
+    interval: 2000
+})
 
+$("#playButton").hide()
+
+$('#playButton').click(function () {
+    $("#playButton").hide()
+    $("#pauseButton").show()
+    $('#carouselFonctionnement').carousel('cycle');
+});
+$('#pauseButton').click(function () {
+    $("#playButton").show()
+    $("#pauseButton").hide()
+    $('#carouselFonctionnement').carousel('pause');
+});
 
 // Uncomment to enable Bootstrap tooltips
 // https://getbootstrap.com/docs/4.0/components/tooltips/#example-enable-tooltips-everywhere

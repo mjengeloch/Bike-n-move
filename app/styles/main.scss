@@ -140,6 +140,15 @@ h1{
   background-color: #f56358;
 }
 
+.fa-play, .fa-pause{
+  color: #f56358;
+  font-size: 1.5em; 
+}
+
+.carouselButton{
+  position: absolute;
+}
+
 /* [class*="col-"], footer {
   background-color: lightgreen;
   outline: 2px solid black;
