@@ -37,10 +37,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="#" class="nav-link">Accueil</a>
+            <a href="#accueil" class="nav-link">Accueil</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Fonctionnement</a>
+            <a href="#fonctionnement" class="nav-link">Fonctionnement</a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">Réserver</a>
@@ -53,7 +53,7 @@
     </nav>
   </div>
 
-  <header>
+  <header id="accueil">
     <div class="container" id="banniereHeader">
       <div class="row">
         <div class="col-lg-8 mx-auto">
@@ -84,7 +84,39 @@
       </div>
       <hr />
       <div class="row">
-
+        <!-- https://getbootstrap.com/docs/4.3/components/carousel/ -->
+        <div class="col-lg-12">
+          <div class="carousel slide" data-ride="carousel" id="carouselFonctionnement">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselFonctionnement" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselFonctionnement" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="col-lg-5 instruction">
+                  <p>Commences par sélectionner la station qui t'intéresse.</p>
+                </div>
+                <div class="offset-lg-2 col-lg-10">
+                  <img src="images/diapo.PNG" alt="" class="d-block w-100 diapositive">
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="col-lg-5 instruction">
+                  <p>ceci est la 2e diapo</p>
+                </div>
+                <div class="offset-lg-2 col-lg-10">
+                  <img src="images/diapo.PNG" alt="" class="d-block w-100 diapositive">
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselFonctionnement" role="button" data-slide="prev">
+              <i class="fas fa-chevron-left"></i>
+            </a>
+            <a class="carousel-control-next" href="#carouselFonctionnement" role="button" data-slide="next">
+              <i class="fas fa-chevron-right"></i>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
