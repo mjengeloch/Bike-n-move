@@ -1,3 +1,13 @@
+/*---HEADER---*/
+$("header").click(function () {
+    $("header").animate({
+        bottom: "100%",
+        opacity: "0.1",
+    }, 2000)
+})
+
+
+/*---CAROUSEL---*/
 $('.carousel').carousel({
     interval: 5000
 })
