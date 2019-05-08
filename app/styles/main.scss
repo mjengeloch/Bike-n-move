@@ -54,11 +54,14 @@ nav{
 /*HEADER*/
 header {
   padding-top:70px; 
-  background: url(../images/Header.png) no-repeat center center fixed; 
-  background-size: cover;
   height: 100vh;
+  background-image: url("../images/Header.png");
+  background-size: cover;
   display: flex;
   align-items: center;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
 }
 
 #banniere{
@@ -77,24 +80,14 @@ h1{
   border: #fffff0 solid 3px;
 }
 
-.fa-chevron-down{
+.fa-chevron-up{
   color: #fffff0;
   font-size: 3em;
-  position: absolute;
-  top: 85%;
+  position: relative;
+  top: 10rem;
 }
 
 /* FONCTIONNEMENT */
-
-#vague{
-  position: relative; //éviter absolute pour que l'élément reste en place
-  width: 101%;
-  top:-100px;
-}
-
-#fonctionnement{
-  margin-top: -100px
-}
 
 .instruction{
   position: absolute;
