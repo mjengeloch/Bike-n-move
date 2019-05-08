@@ -42,6 +42,23 @@ $(document).ready(function () {
         }
     });
 
+    function slideDiapo() {
+        setTimeout(function () {
+            if (i < indexDiapo) {
+                i++
+            } else {
+                i = 0;
+            }
+            $diapo.css("display", "none");
+
+            $currentDiapo = $diapo.eq(1);
+            $currentDiapo.css("display", "block");
+
+            slideDiapo()
+        } 5000);
+    }
+
+    slideDiapo();
 
     /* $('.carousel').carousel({
         interval: 5000
