@@ -93,6 +93,10 @@ h1{
   padding-top: 70px;
 }
 
+#carrousel li{
+  list-style-type: none;
+}
+
 .instruction{
   position: absolute;
   z-index: 2;
@@ -108,7 +112,7 @@ h1{
   margin: 10px 0 10px 0;
 }
 
-.diapositive{
+.diapositive img{
   width: 100%;
 }
 
