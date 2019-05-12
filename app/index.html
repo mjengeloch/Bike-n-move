@@ -43,10 +43,10 @@
             <a href="#fonctionnement" class="nav-link">Fonctionnement</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Réserver</a>
+            <a href="#reserver" class="nav-link">Réserver</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Ma réservation</a>
+            <a href="#reservation" class="nav-link">Ma réservation</a>
           </li>
         </ul>
       </div>
@@ -129,26 +129,108 @@
               </div>
             </li>
           </ul>
+          <ol class="selecteur">
+            <li class="point">
+              <i class="fas fa-circle"></i>
+            </li>
+            <li class="point">
+              <i class="fas fa-circle"></i>
+            </li>
+            <li class="point">
+              <i class="fas fa-circle"></i>
+            </li>
+            <li class="point">
+              <i class="fas fa-circle"></i>
+            </li>
+          </ol>
           <a class="prev">
             <i class="fas fa-chevron-left"></i>
           </a>
           <a class="next">
             <i class="fas fa-chevron-right"></i>
           </a>
-          <!--        <div class="carouselButton">
-              <button id="playButton" type="button" class="btn btn-default btn-xs">
-                <i class="fas fa-play"></i>
-              </button>
-              <button id="pauseButton" type="button" class="btn btn-default btn-xs">
-                <i class="fas fa-pause"></i>
-              </button> -->
+          <div class="boutons">
+            <a id="play">
+              <i class="fas fa-play"></i>
+            </a>
+            <a id="pause">
+              <i class="fas fa-pause"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section id="reserver">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-8 mx-auto">
+          <h2>Réserver</h2>
+        </div>
+      </div>
+      <hr />
+    </div>
+  </section>
+
+  <section id="reservation">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-8 mx-auto">
+          <h2>Ma réservation</h2>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-lg-12">
+          <p id="lieu"><span class="details">Lieu</span> XXXX</p>
+          <p id="date"><span class="details">Date</span> XXXX</p>
+        </div>
+        <div class="col-lg-12 mx-auto">
+          <p id="tempsRestant">Temps restant</p>
+          <div class="row">
+            <div class="col-lg-2 mx-auto">
+              <p id="minuteur">00:00</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <p>A propos</p>
+        </div>
+        <div class="col-lg-3">
+          <p>Tarif</p>
+        </div>
+        <div class="col-lg-3">
+          <p>Aide</p>
+        </div>
+        <div class="col-lg-3">
+          <p>Copyright</p>
+        </div>
+        <div class="col-lg-3">
+          <p>Contact</p>
+        </div>
+        <div class="col-lg-3">
+          <p>Condition d'utilisation</p>
+        </div>
+        <div class="col-lg-3">
+          <p>Question fréquente</p>
+        </div>
+        <div class="col-lg-3">
+          <p>information légal</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="scripts/diaporama.js"></script>
   <script src="scripts/main.js"></script>
 </body>
 

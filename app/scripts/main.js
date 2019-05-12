@@ -1,89 +1,51 @@
 $(document).ready(function () {
 
+    let diaporama = new Diaporama($(".diapositive"), $(".point"));
+
     /*---HEADER---*/
+
     $("header").click(function () {
         $("header").animate({
             bottom: "100%",
             opacity: "0.1",
         }, 2000)
+        $("body").css("overflow-y", "visible")
+        diaporama.demarrerDiaporama();
     })
 
 
-    /*---CAROUSEL---*/
-
-    var $carrousel = $("#carrousel"),
-        $diapo = $(".diapositive"),
-        indexDiapo = $diapo.length - 1,
-        i = 0,
-        $currentDiapo = $diapo.eq(i);
-
-    $diapo.css("display", "none");
-    $currentDiapo.css("display", "block");
+    /*---Diapositive---*/
 
     $(".next").click(function () {
-        i++;
-        if (i <= indexDiapo) {
-            $diapo.css("display", "none");
-            $currentDiapo = $diapo.eq(i);
-            $currentDiapo.css("display", "block");
-        } else {
-            i = 0;
-        }
+        diaporama.diapositiveSuivante();
     });
 
     $(".prev").click(function () {
-        i--;
-        if (i >= 0) {
-            $diapo.css("display", "none");
-            $currentDiapo = $diapo.eq(i);
-            $currentDiapo.css("display", "block");
-        } else {
-            i = $diapo.length;
+        diaporama.diapositivePrecedente();
+    });
+
+    $(document).keydown(function (e) {
+        switch (e.which) {
+            case 39:
+                diaporama.diapositiveSuivante();
+                break;
+            case 37:
+                diaporama.diapositivePrecedente();
+                break;
         }
-    });
-
-    function slideDiapo() {
-        setTimeout(function () {
-            if (i < indexDiapo) {
-                i++
-            } else {
-                i = 0;
-            }
-            $diapo.css("display", "none");
-
-            $currentDiapo = $diapo.eq(1);
-            $currentDiapo.css("display", "block");
-
-            slideDiapo()
-        } 5000);
-    }
-
-    slideDiapo();
-
-    /* $('.carousel').carousel({
-        interval: 5000
     })
-    
-    $("#playButton").hide()
-    
-    $('#playButton').click(function () {
-        $("#playButton").hide()
-        $("#pauseButton").show()
-        $('#carouselFonctionnement').carousel('cycle');
+
+    $("#play").hide()
+
+    $('#play').click(function () {
+        $("#play").hide()
+        $("#pause").show()
+        diaporama.demarrerDiaporama();
     });
-    $('#pauseButton').click(function () {
-        $("#playButton").show()
-        $("#pauseButton").hide()
-        $('#carouselFonctionnement').carousel('pause');
-    }); */
-
-    // Uncomment to enable Bootstrap tooltips
-    // https://getbootstrap.com/docs/4.0/components/tooltips/#example-enable-tooltips-everywhere
-    // $(function () { $('[data-toggle="tooltip"]').tooltip(); });
-
-    // Uncomment to enable Bootstrap popovers
-    // https://getbootstrap.com/docs/4.0/components/popovers/#example-enable-popovers-everywhere
-    // $(function () { $('[data-toggle="popover"]').popover(); });
-
+    $('#pause').click(function () {
+        $("#play").show()
+        $("#pause").hide()
+        diaporama.pauseDiaporama();
+    });
 
 })

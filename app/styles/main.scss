@@ -17,6 +17,7 @@ body {
   font-family: 'Open sans', Arial, Helvetica, sans-serif;
   color: #323232;
   overflow-X: hidden;
+  overflow-y: hidden;
 }
 
 h1, h2, h3{
@@ -56,6 +57,7 @@ header {
   padding-top:70px; 
   height: 100vh;
   background-image: url("../images/Header.png");
+  background-position: center;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -104,31 +106,92 @@ h1{
   background-color: #ffffffbd;
   border: 2px solid #218da6;
   border-radius: 10px;
+  p{
+    font-size: 1.5em;
+    text-align: center;
+    margin: 10px 0 10px 0;
+  }
 }
 
-.instruction p{
-  font-size: 1.5em;
-  text-align: center;
-  margin: 10px 0 10px 0;
+.diapositive{
+  display: none;
+  img{
+    width: 100%;
+  }
 }
 
-.diapositive img{
-  width: 100%;
-}
-
-/* .fa-chevron-left, .fa-chevron-right{
-  color: #f56358;
+.fa-chevron-left, .fa-chevron-right{
+  color: #f5625886;
   font-size: 7em;
-}
- */
-/* .fa-play, .fa-pause{
-  color: #f56358;
-  font-size: 1.5em; 
+  position: absolute;
+  top:40%;
 }
 
-.carouselButton{
+.fa-chevron-right{
+  right: -25px;
+}
+
+.selecteur{
+  display: flex;
+  justify-content: center;
+  color: #f5625886;
+  li{
+    margin: 0 5px 0 5px;
+  }
+}
+
+.fa-play, .fa-pause{
+  color: #f56358;
+  font-size: 1.75em; 
+}
+
+.boutons{
   position: absolute;
-} */
+  bottom: 11px;
+  left: 500px;
+}
+
+/* RESERVER */
+
+/* MA RESERVATION */
+
+.details{
+  background: #218da6;
+  border-radius: 5px;
+  padding: 10px;
+  display: inline-block;
+  width: 60px;
+  text-align: center;
+  color: white;
+  margin-right: 10px;
+}
+
+#tempsRestant{
+  text-align: center;
+  color: #218da6;
+  font-size: 1.5em;
+}
+
+#minuteur{
+  background: white;
+  border: #218da6 solid 3px;
+  text-align: center;
+  padding: 10px;
+  color: #218da6;
+  font-size: 1.75em;
+  border-radius: 10px;
+}
+
+/* FOOTER */
+footer{
+  background: #baf2e2;
+  padding-top: 15px;
+  margin-top: 15px;
+  p{
+    font-size: 0.85em;
+    color: #218da6;
+  }
+}
 
 /* [class*="col-"], footer {
   background-color: lightgreen;
