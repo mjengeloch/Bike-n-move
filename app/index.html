@@ -180,6 +180,31 @@
         <div class="col-lg-7">
           <div id="mapid"></div>
         </div>
+        <div class="col-lg-5" id="detailStation">
+          <div id="titreStation">
+            <h3>Détail de la station</h3>
+          </div>
+          <div id="corpStation">
+            <p id="status">OPEN</p>
+            <p>Nom de la station: <span id="station"></span></p>
+            <p>Adresse: <span id="adresse"></span> – <span id="zipCode"></span> <span id="ville"></span></p>
+            <p>Nombre de vélo libre: <span id="velo"></span></p>
+            <p>Nombre de place libre: <span id="place"></span></p>
+            <form action="" method="post">
+              <div>
+                <label for="name">Prénom: </label> <br>
+                <input type="text" id="prenom" name="user_prenom" required>
+              </div>
+              <div>
+                <label for="name">Nom: </label> <br>
+                <input type="text" id="nom" name="user_nom" required>
+              </div>
+              <div>
+                <button>Réserver</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </section>

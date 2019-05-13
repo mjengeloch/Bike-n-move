@@ -153,11 +153,37 @@ h1{
 
 /* RESERVER */
 
+#reserver{
+  margin-bottom: 20px;
+}
+
 #mapid{
   height: 500px;
   width: 100%;
-  margin-bottom: 20px;
   z-index: 3;
+}
+
+#detailStation{
+ background-color: white;
+ border-radius: 10px;
+ box-shadow: 2px 2px 12px #aaa;
+ padding: 0;
+}
+
+#titreStation{
+  background-color: #f56358;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  h3{
+    margin: 0;
+  }
+}
+
+#corpStation{
+  padding: 0 15px;
 }
 
 /* MA RESERVATION */
