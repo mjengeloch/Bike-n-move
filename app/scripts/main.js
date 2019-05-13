@@ -63,8 +63,9 @@ $(document).ready(function () {
 
     ajaxGet("https://api.jcdecaux.com/vls/v1/stations?contract=nantes&apiKey=c05f61c194281ba2e1e2e03cb7d62ed92e991968", function (reponse) {
         let stations = JSON.parse(reponse);
+        /*         debugger; */
         stations.forEach(function (station) {
-            let marker = L.marker([station.position.latitude, station.position.longitude]).addTo(mymap);
+            let marker = L.marker([station.position.lat, station.position.lng]).addTo(mymap);
         })
 
     });
