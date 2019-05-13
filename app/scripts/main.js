@@ -59,6 +59,13 @@ $(document).ready(function () {
         accessToken: 'your.mapbox.access.token'
     }).addTo(mymap);
 
-    let marker = L.marker([47.218371, -1.553621]).addTo(mymap);
+    /*     let marker = L.marker([47.218371, -1.553621]).addTo(mymap); */
 
+    ajaxGet("https://api.jcdecaux.com/vls/v1/stations?contract=nantes&apiKey=c05f61c194281ba2e1e2e03cb7d62ed92e991968", function (reponse) {
+        let stations = JSON.parse(reponse);
+        stations.forEach(function (station) {
+            let marker = L.marker([station.position.latitude, station.position.longitude]).addTo(mymap);
+        })
+
+    });
 })
