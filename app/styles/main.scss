@@ -37,6 +37,10 @@ hr{
   margin-bottom: 30px;
 }
 
+section{
+  margin-bottom: 40px;
+}
+
 /*NAVIGATION*/
 
 nav{
@@ -153,10 +157,6 @@ h1{
 
 /* RESERVER */
 
-#reserver{
-  margin-bottom: 20px;
-}
-
 #mapid{
   height: 500px;
   width: 100%;
@@ -184,6 +184,29 @@ h1{
 
 #corpStation{
   padding: 0 15px;
+  #status{
+    text-transform: uppercase; 
+    background-color: lightgray;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: 700;
+    color: white;
+  }
+  input{
+    border-radius: 5px;
+    border: #f56358 1px solid;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  button{
+    background-color: #f56358;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    margin-top: 10px;
+  }
 }
 
 /* MA RESERVATION */
