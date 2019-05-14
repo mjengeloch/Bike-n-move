@@ -63,10 +63,30 @@ $(document).ready(function () {
 
     ajaxGet("https://api.jcdecaux.com/vls/v1/stations?contract=nantes&apiKey=c05f61c194281ba2e1e2e03cb7d62ed92e991968", function (reponse) {
         let stations = JSON.parse(reponse);
-        /*         debugger; */
+        /* debugger; */
         stations.forEach(function (station) {
             let marker = L.marker([station.position.lat, station.position.lng]).addTo(mymap);
+            let statusElt = document.getElementById("status");
+            statusElt.textContent = station.status;
+            let stationElt = document.getElementById("station");
+            stationElt.textContent = station.name;
+            let adresseElt = document.getElementById("adresse");
+            adresseElt.textContent = station.address;
+            let zipCodeElt = document.getElementById("zipCode");
+            zipCodeElt.textContent = station.zipCode;
+            let villeElt = document.getElementById("ville");
+            villeElt.textContent = station.city;
+            let veloElt = document.getElementById("velo");
+            veloElt.textContent = station.available_bikes;
+            let placeElt = document.getElementById("place");
+            placeElt.textContent = station.available_bike_stands;
+
         })
 
     });
+    function onMarkerClick(e) {
+        alert("You clicked the map at " + e.latlng);
+    }
+
+    marker.on('click', onMarkerClick);
 })
