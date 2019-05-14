@@ -66,27 +66,22 @@ $(document).ready(function () {
         /* debugger; */
         stations.forEach(function (station) {
             let marker = L.marker([station.position.lat, station.position.lng]).addTo(mymap);
-            let statusElt = document.getElementById("status");
-            statusElt.textContent = station.status;
-            let stationElt = document.getElementById("station");
-            stationElt.textContent = station.name;
-            let adresseElt = document.getElementById("adresse");
-            adresseElt.textContent = station.address;
-            let zipCodeElt = document.getElementById("zipCode");
-            zipCodeElt.textContent = station.zipCode;
-            let villeElt = document.getElementById("ville");
-            villeElt.textContent = station.city;
-            let veloElt = document.getElementById("velo");
-            veloElt.textContent = station.available_bikes;
-            let placeElt = document.getElementById("place");
-            placeElt.textContent = station.available_bike_stands;
-
+            marker.addEventListener("click", function () {
+                let statusElt = document.getElementById("status");
+                statusElt.textContent = station.status;
+                let stationElt = document.getElementById("station");
+                stationElt.textContent = station.name;
+                let adresseElt = document.getElementById("adresse");
+                adresseElt.textContent = station.address;
+                let zipCodeElt = document.getElementById("zipCode");
+                zipCodeElt.textContent = station.zipCode;
+                let villeElt = document.getElementById("ville");
+                villeElt.textContent = station.city;
+                let veloElt = document.getElementById("velo");
+                veloElt.textContent = station.available_bikes;
+                let placeElt = document.getElementById("place");
+                placeElt.textContent = station.available_bike_stands;
+            })
         })
-
     });
-    function onMarkerClick(e) {
-        alert("You clicked the map at " + e.latlng);
-    }
-
-    marker.on('click', onMarkerClick);
 })
