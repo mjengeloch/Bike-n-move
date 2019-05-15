@@ -67,6 +67,15 @@ $(document).ready(function () {
             marker.addEventListener("click", function () {
                 let statusElt = document.getElementById("status");
                 statusElt.textContent = station.status;
+                if ($("#status").text() === "OPEN") {
+                    $("#status").css("display", "inline-block")
+                    $("#status").css("background-color", "green")
+                } else if ($("status").text() === "CLOSED") {
+                    $("#status").css("display", "inline-block")
+                    $("#status").css("background-color", "red")
+                } else {
+                    $("#status").text("INCONNU")
+                }
                 let stationElt = document.getElementById("station");
                 stationElt.textContent = station.name;
                 let adresseElt = document.getElementById("adresse");
@@ -82,4 +91,6 @@ $(document).ready(function () {
             })
         })
     });
+
+
 })

@@ -192,9 +192,8 @@ h1{
 #corpStation{
   padding: 0 15px 10px 15px;
   #status{
-    text-transform: uppercase; 
-    background-color: lightgray;
-    display: inline-block;
+    text-transform: uppercase;
+    display: none;
     border-radius: 5px;
     padding: 5px;
     font-weight: 700;
