@@ -59,11 +59,10 @@ $(document).ready(function () {
         /* accessToken: 'your.mapbox.access.token' */
     }).addTo(mymap);
 
-    ajaxGet("https://api.jcdecaux.com/vls/v1/stations?contract=nantes&apiKey=c05f61c194281ba2e1e2e03cb7d62ed92e991968", function (reponse) {
+    ajaxGet("https://api.jcdecaux.com/vls/v3/stations?contract=nantes&apiKey=c05f61c194281ba2e1e2e03cb7d62ed92e991968", function (reponse) {
         let stations = JSON.parse(reponse);
-        /* debugger; */
         stations.forEach(function (station) {
-            let marker = L.marker([station.position.lat, station.position.lng]).addTo(mymap);
+            let marker = L.marker([station.position.latitude, station.position.longitude]).addTo(mymap);
             marker.addEventListener("click", function () {
                 $("#status").text(station.status);
 
@@ -83,10 +82,15 @@ $(document).ready(function () {
 
                 $("#station").text(station.name);
                 $("#adresse").text(station.address);
-                $("#zipCode").text(station.zipCode);
-                $("#ville").text(station.city);
-                $("#velo").text(station.available_bikes);
-                $("#place").text(station.available_bike_stands);
+                $("#velo").text(station.totalStands.availabilities.bikes);
+                $("#place").text(station.totalStands.availabilities.stands);
+                /*                 ajaxGet(`https://api.jcdecaux.com/parking/v1/contracts/nante/parks/`station.number`HTTP/1.1`, function (reponse) {
+                                    let adresseStations = JSON.parse(reponse);
+                                    adresseStations.forEach(function (adresseStation) {
+                                        $("#zipCode").text(adresseStation.zipCode);
+                                        $("#ville").text(adresseStation.city);
+                                    })
+                                }) */
             })
         })
     });
