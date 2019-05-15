@@ -1,3 +1,10 @@
+$color-turquois: #baf2e8;
+$color-bleu: #218da6;
+$color-creme: #fffff0;
+$color-rosePale: #feb2ad;
+$color-roseRouge: #f56358;
+$color-noir: #323232;
+
 .container{
   padding-right: 15px;
   padding-left: 20px;
@@ -13,9 +20,9 @@
 /*CORP DE LA PAGE*/
 
 body {
-  background-color: #fffff0;
+  background-color: $color-creme;
   font-family: 'Open sans', Arial, Helvetica, sans-serif;
-  color: #323232;
+  color: $color-noir;
   overflow-X: hidden;
   overflow-y: hidden;
 }
@@ -26,11 +33,11 @@ h1, h2, h3{
 }
 
 h2{
-  color: #f56358;
+  color: $color-roseRouge;
 }
 
 hr{
-  border: solid 1px #f56358;
+  border: solid 1px $color-roseRouge;
   height: 0;
   margin: auto;
   width: 15%;
@@ -49,7 +56,7 @@ nav{
 }
 
 .navbar{
-  background-color: #fffff0 !important;
+  background-color: $color-creme !important;
 }
 
 #logo{
@@ -83,11 +90,11 @@ h1{
   border-radius: 10px;
   padding: 15px 0 15px 0;
   margin-top: 20px;
-  border: #fffff0 solid 3px;
+  border: $color-creme solid 3px;
 }
 
 .fa-chevron-up{
-  color: #fffff0;
+  color: $color-creme;
   font-size: 3em;
   position: relative;
   top: 10rem;
@@ -108,7 +115,7 @@ h1{
   z-index: 2;
   margin-top: 50px;
   background-color: #ffffffbd;
-  border: 2px solid #218da6;
+  border: 2px solid $color-bleu;
   border-radius: 10px;
   p{
     font-size: 1.5em;
@@ -145,7 +152,7 @@ h1{
 }
 
 .fa-play, .fa-pause{
-  color: #f56358;
+  color: $color-roseRouge;
   font-size: 1.75em; 
 }
 
@@ -171,7 +178,7 @@ h1{
 }
 
 #titreStation{
-  background-color: #f56358;
+  background-color: $color-roseRouge;
   color: white;
   border-radius: 10px 10px 0 0;
   width: 100%;
@@ -183,7 +190,7 @@ h1{
 }
 
 #corpStation{
-  padding: 0 15px;
+  padding: 0 15px 10px 15px;
   #status{
     text-transform: uppercase; 
     background-color: lightgray;
@@ -193,26 +200,34 @@ h1{
     font-weight: 700;
     color: white;
   }
-  input{
-    border-radius: 5px;
-    border: #f56358 1px solid;
-    width: 100%;
-    margin-bottom: 15px;
-  }
+
   button{
-    background-color: #f56358;
+    background-color: $color-roseRouge;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
     color: white;
-    margin-top: 10px;
+    margin-top: 5px;
+  }
+}
+
+input{
+  border-radius: 5px;
+  border: $color-rosePale 2px solid;
+  width: 100%;
+  margin-bottom: 10px;
+  outline: none;
+  padding: 3px;
+  &:focus{
+    border: $color-roseRouge 2px solid;
+    border-radius: 5px;
   }
 }
 
 /* MA RESERVATION */
 
 .details{
-  background: #218da6;
+  background: $color-bleu;
   border-radius: 5px;
   padding: 10px;
   display: inline-block;
@@ -224,28 +239,28 @@ h1{
 
 #tempsRestant{
   text-align: center;
-  color: #218da6;
+  color: $color-bleu;
   font-size: 1.5em;
 }
 
 #minuteur{
   background: white;
-  border: #218da6 solid 3px;
+  border: $color-bleu solid 3px;
   text-align: center;
   padding: 10px;
-  color: #218da6;
+  color: $color-bleu;
   font-size: 1.75em;
   border-radius: 10px;
 }
 
 /* FOOTER */
 footer{
-  background: #baf2e2;
+  background: $color-turquois;
   padding-top: 15px;
   margin-top: 15px;
   p{
     font-size: 0.85em;
-    color: #218da6;
+    color: $color-bleu;
   }
 }
 
