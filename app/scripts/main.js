@@ -65,29 +65,28 @@ $(document).ready(function () {
         stations.forEach(function (station) {
             let marker = L.marker([station.position.lat, station.position.lng]).addTo(mymap);
             marker.addEventListener("click", function () {
-                let statusElt = document.getElementById("status");
-                statusElt.textContent = station.status;
+                $("#status").text(station.status);
+
                 if ($("#status").text() === "OPEN") {
-                    $("#status").css("display", "inline-block")
-                    $("#status").css("background-color", "green")
+                    $("#status").css("display", "inline-block");
+                    $("#status").css("background-color", "green");
+
                 } else if ($("status").text() === "CLOSED") {
-                    $("#status").css("display", "inline-block")
-                    $("#status").css("background-color", "red")
+                    $("#status").css("display", "inline-block");
+                    $("#status").css("background-color", "red");
+
                 } else {
-                    $("#status").text("INCONNU")
+                    $("#status").css("display", "inline-block");
+                    $("#status").css("background-color", "lightgray");
+                    $("#status").text("INCONNU");
                 }
-                let stationElt = document.getElementById("station");
-                stationElt.textContent = station.name;
-                let adresseElt = document.getElementById("adresse");
-                adresseElt.textContent = station.address;
-                let zipCodeElt = document.getElementById("zipCode");
-                zipCodeElt.textContent = station.zipCode;
-                let villeElt = document.getElementById("ville");
-                villeElt.textContent = station.city;
-                let veloElt = document.getElementById("velo");
-                veloElt.textContent = station.available_bikes;
-                let placeElt = document.getElementById("place");
-                placeElt.textContent = station.available_bike_stands;
+
+                $("#station").text(station.name);
+                $("#adresse").text(station.address);
+                $("#zipCode").text(station.zipCode);
+                $("#ville").text(station.city);
+                $("#velo").text(station.available_bikes);
+                $("#place").text(station.available_bike_stands);
             })
         })
     });
