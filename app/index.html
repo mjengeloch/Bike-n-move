@@ -187,20 +187,20 @@
           <div id="corpStation">
             <p id="status"></p>
             <p>Nom de la station: <span id="station"></span></p>
-            <p>Adresse: <span id="adresse"></span> – <span id="zipCode"></span> <span id="ville"></span></p>
+            <p>Adresse: <span id="adresse"></span></p>
             <p>Nombre de vélos libres: <span id="velo"></span></p>
             <p>Nombre de places libres: <span id="place"></span></p>
             <form action="" method="post">
               <div>
                 <label for="name">Prénom: </label> <br>
-                <input type="text" id="prenom" name="user_prenom" required>
+                <input type="text" id="prenom" value="" name="user_prenom" required>
               </div>
               <div>
                 <label for="name">Nom: </label> <br>
-                <input type="text" id="nom" name="user_nom" required>
+                <input type="text" id="nom" value="" name="user_nom" required>
               </div>
               <div>
-                <button>Réserver</button>
+                <button onclick="store()">Réserver</button>
               </div>
             </form>
           </div>
@@ -219,8 +219,8 @@
       <hr />
       <div class="row">
         <div class="col-lg-12">
-          <p id="lieu"><span class="details">Lieu</span> <span id="stationReserve">XXXX</span></p>
-          <p id="date"><span class="details">Date</span> <span id="dateReserve">XXXX</span></p>
+          <p id="lieu"><span class="details">Lieu</span> <span id="stationReserve"></span></p>
+          <p id="date"><span class="details">Date</span> <span id="dateReserve"></span></p>
         </div>
         <div class="col-lg-12 mx-auto">
           <p id="tempsRestant">Temps restant</p>
@@ -269,6 +269,7 @@
   <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="scripts/ajax.js"></script>
   <script src="scripts/diaporama.js"></script>
+  <script src="scripts/localStorage.js"></script>
   <script src="scripts/main.js"></script>
 </body>
 

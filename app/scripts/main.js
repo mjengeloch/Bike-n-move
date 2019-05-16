@@ -56,7 +56,6 @@ $(document).ready(function () {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         maxZoom: 18,
         id: 'mapbox.streets',
-        /* accessToken: 'your.mapbox.access.token' */
     }).addTo(mymap);
 
     ajaxGet("https://api.jcdecaux.com/vls/v3/stations?contract=nantes&apiKey=c05f61c194281ba2e1e2e03cb7d62ed92e991968", function (reponse) {
@@ -77,23 +76,25 @@ $(document).ready(function () {
                 } else {
                     $("#status").css("display", "inline-block");
                     $("#status").css("background-color", "lightgray");
-                    $("#status").text("INCONNU");
+                    $("#status").text("Inconnu");
                 }
 
                 $("#station").text(station.name);
                 $("#adresse").text(station.address);
                 $("#velo").text(station.totalStands.availabilities.bikes);
                 $("#place").text(station.totalStands.availabilities.stands);
-                /*                 ajaxGet(`https://api.jcdecaux.com/parking/v1/contracts/nante/parks/`station.number`HTTP/1.1`, function (reponse) {
-                                    let adresseStations = JSON.parse(reponse);
-                                    adresseStations.forEach(function (adresseStation) {
-                                        $("#zipCode").text(adresseStation.zipCode);
-                                        $("#ville").text(adresseStation.city);
-                                    })
-                                }) */
             })
         })
-    });
+    })
 
+    /*---Local Storage---*/
 
-})
+    if (!localStorage.getItem("prenom")) {
+        populateStorage();
+    } else {
+        setStyles();
+    }
+
+    document.getElementById("prenom").onchange = populateStorage;
+    document.getElementById("nom").onchange = populateStorage;
+});
