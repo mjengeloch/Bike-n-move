@@ -100,33 +100,6 @@ $(document).ready(function () {
 
     /*---Signature---*/
 
-    const canvas = document.querySelector("#zoneSignature");
-    const ctx = canvas.getContext("2d");
-
-    canvas.width = canvas.parentNode.clientWidth;
-    canvas.height = 100;
-
-    ctx.strockStyle = "#000";
-    ctx.lineJoin = "round";
-    ctx.lineCap = "round";
-    ctx.lineWidth = 2;
-    ctx.fillStyle = "#fff";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    let singnatureBoxWidth = canvas.parentNode.clientWidth;
-    let isDrawing = false;
-    let lastX = 0;
-    let lastY = 0;
-
-    function draw(x, y) {
-        if (!isDrawing) return;
-        ctx.beginPath();
-        ctx.moveTo(lastX, lastY);
-        ctx.lineTo(x, y);
-        ctx.stroke();
-        [lastX, lastY] = [x, y]
-    }
-
     canvas.addEventListener("mousedown", e => {
         isDrawing = true;
         [lastX, lastY] = [e.offsetX, e.offsetY];
@@ -160,12 +133,18 @@ $(document).ready(function () {
 
     let clearButton = document.getElementById("clear");
 
-    function clearSignature() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "#fff";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-    }
-
     clearButton.addEventListener("click", clearSignature);
+
+    $("#signature").css("display", "none");
+
+    $('#reserver').click(function () {
+        $("#formulaire").css("display", "none");
+        $("#signature").css("display", "block");
+    });
+
+    $('#reserver').click(function () {
+        $("#formulaire").css("display", "inline");
+        $("#signature").css("display", "none");
+    });
 
 });
