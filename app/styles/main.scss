@@ -223,6 +223,14 @@ input{
   }
 }
 
+canvas{
+  display: block;
+  cursor: crosshair;
+  border: $color-roseRouge 2px solid;
+  border-radius: 5px;
+/*   width: 100%; */
+}
+
 /* MA RESERVATION */
 
 .details{

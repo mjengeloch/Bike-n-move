@@ -97,4 +97,75 @@ $(document).ready(function () {
 
     document.getElementById("prenom").onchange = populateStorage;
     document.getElementById("nom").onchange = populateStorage;
+
+    /*---Signature---*/
+
+    const canvas = document.querySelector("#zoneSignature");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = canvas.parentNode.clientWidth;
+    canvas.height = 100;
+
+    ctx.strockStyle = "#000";
+    ctx.lineJoin = "round";
+    ctx.lineCap = "round";
+    ctx.lineWidth = 2;
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    let singnatureBoxWidth = canvas.parentNode.clientWidth;
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    function draw(x, y) {
+        if (!isDrawing) return;
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+        [lastX, lastY] = [x, y]
+    }
+
+    canvas.addEventListener("mousedown", e => {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+    })
+    canvas.addEventListener("touchstart", e => {
+        if (e.touches && e.touches.length == 1) {
+            isDrawing = true;
+            let touch = e.touches[0]
+            let touchX = touch.pageX - touch.target.offsetleft;
+            let touchY = touch.pageY - touch.target.offsetTop;
+            [lastX, lastY] = [touchX, touchY];
+            e.preventDefault();
+        }
+    });
+
+    canvas.addEventListener("mousemove", function (e) {
+        draw(e.offsetX, e.offsetY);
+    });
+    canvas.addEventListener("touchmove", e => {
+        if (e.touches && e.touches.length == 1) {
+            let touch = e.touches[0];
+            let touchX = touch.pageX - touch.target.offsetleft;
+            let touchY = touch.pageY - touch.target.offsetTop;
+            draw(touchX, touchY);
+        }
+    });
+
+    canvas, addEventListener("mouseup", () => (isDrawing = false));
+    canvas, addEventListener("mouseout", () => (isDrawing = false));
+    canvas, addEventListener("touchend", () => (isDrawing = false));
+
+    let clearButton = document.getElementById("clear");
+
+    function clearSignature() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#fff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    clearButton.addEventListener("click", clearSignature);
+
 });
