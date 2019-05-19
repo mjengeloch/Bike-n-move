@@ -50,7 +50,7 @@ $(document).ready(function () {
 
     /*---Map---*/
 
-    let mymap = L.map('mapid').setView([47.218371, -1.553621], 13);
+    let mymap = L.map('mapid').setView([47.218371, -1.553621], 14);
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWlyaW1hZ2ljIiwiYSI6ImNqdm1jOXd2dzE3d2w0OWwycXExd29pdjcifQ.4PPbOhOYwIqe9Zhp8LzY6A', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -58,11 +58,29 @@ $(document).ready(function () {
         id: 'mapbox.streets',
     }).addTo(mymap);
 
+    let markerMap = L.icon({
+        iconUrl: "images/marker.png",
+
+        iconSize: [33, 52],
+        iconAnchor: [15, 51]
+    });
+
+    let markerMapSelected = L.icon({
+        iconUrl: "images/markerSelec.png",
+
+        iconSize: [33, 52],
+        iconAnchor: [15, 51]
+    });
+
+    let markerList = [];
     ajaxGet("https://api.jcdecaux.com/vls/v3/stations?contract=nantes&apiKey=c05f61c194281ba2e1e2e03cb7d62ed92e991968", function (reponse) {
         let stations = JSON.parse(reponse);
         stations.forEach(function (station) {
-            let marker = L.marker([station.position.latitude, station.position.longitude]).addTo(mymap);
+            let marker = L.marker([station.position.latitude, station.position.longitude], { icon: markerMap }).addTo(mymap);
+            markerList.push(marker);
             marker.addEventListener("click", function () {
+                markerList.forEach(marker => marker.setIcon(markerMap));
+                this.setIcon(markerMapSelected);
                 $("#status").text(station.status);
 
                 if ($("#status").text() === "OPEN") {
@@ -87,12 +105,14 @@ $(document).ready(function () {
         })
     })
 
+
+
     /*---Local Storage---*/
 
     if (!localStorage.getItem("prenom")) {
         populateStorage();
     } else {
-        setStyles();
+        chargeStorage();
     }
 
     document.getElementById("prenom").onchange = populateStorage;
@@ -100,51 +120,24 @@ $(document).ready(function () {
 
     /*---Signature---*/
 
-    canvas.addEventListener("mousedown", e => {
-        isDrawing = true;
-        [lastX, lastY] = [e.offsetX, e.offsetY];
-    })
-    canvas.addEventListener("touchstart", e => {
-        if (e.touches && e.touches.length == 1) {
-            isDrawing = true;
-            let touch = e.touches[0]
-            let touchX = touch.pageX - touch.target.offsetleft;
-            let touchY = touch.pageY - touch.target.offsetTop;
-            [lastX, lastY] = [touchX, touchY];
-            e.preventDefault();
-        }
+    let signatureCanvas = new Canvas($("#zoneSignature"));
+
+    $("#clearButton").click(function () {
+        signatureCanvas.clearSignature();
     });
 
-    canvas.addEventListener("mousemove", function (e) {
-        draw(e.offsetX, e.offsetY);
-    });
-    canvas.addEventListener("touchmove", e => {
-        if (e.touches && e.touches.length == 1) {
-            let touch = e.touches[0];
-            let touchX = touch.pageX - touch.target.offsetleft;
-            let touchY = touch.pageY - touch.target.offsetTop;
-            draw(touchX, touchY);
-        }
+    $("#signature").hide();
+
+    $('#buttonReserver').click(function (e) {
+        e.preventDefault();
+        $("#formulaire").hide();
+        $("#signature").show();
     });
 
-    canvas, addEventListener("mouseup", () => (isDrawing = false));
-    canvas, addEventListener("mouseout", () => (isDrawing = false));
-    canvas, addEventListener("touchend", () => (isDrawing = false));
-
-    let clearButton = document.getElementById("clear");
-
-    clearButton.addEventListener("click", clearSignature);
-
-    $("#signature").css("display", "none");
-
-    $('#reserver').click(function () {
-        $("#formulaire").css("display", "none");
-        $("#signature").css("display", "block");
-    });
-
-    $('#reserver').click(function () {
-        $("#formulaire").css("display", "inline");
-        $("#signature").css("display", "none");
+    $('#valider').click(function (e) {
+        e.preventDefault();
+        $("#formulaire").show();
+        $("#signature").hide();
     });
 
 });

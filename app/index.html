@@ -194,11 +194,11 @@
               <p>Signature:</p>
               <canvas id="zoneSignature"></canvas>
               <div>
-                <button>Valider</button>
-                <button id="clear">Recommencer</button>
+                <button id="valider">Valider</button>
+                <button id="clearButton">Recommencer</button>
               </div>
             </div>
-            <form action="" method="post">
+            <form action="" method="post" id="formulaire">
               <div>
                 <label for="name">Prénom: </label> <br>
                 <input type="text" id="prenom" value="" name="user_prenom" required>
@@ -208,7 +208,7 @@
                 <input type="text" id="nom" value="" name="user_nom" required>
               </div>
               <div>
-                <button onclick="store()" id="reserver">Réserver</button>
+                <button id="buttonReserver">Réserver</button>
               </div>
             </form>
           </div>
