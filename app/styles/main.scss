@@ -51,12 +51,12 @@ section{
 /*NAVIGATION*/
 
 nav{
-  padding-left: 10% !important;
-  padding-right: 10% !important;
+  padding:3px 10% !important;
+  box-shadow: 0px 3px 5px lightgrey;
 }
 
 .navbar{
-  background-color: $color-creme !important;
+  background-color: $color-turquois !important;
 }
 
 #logo{
@@ -103,7 +103,7 @@ h1{
 /* FONCTIONNEMENT */
 
 #fonctionnement{
-  padding-top: 70px;
+  padding-top: 90px;
 }
 
 #carrousel li{
