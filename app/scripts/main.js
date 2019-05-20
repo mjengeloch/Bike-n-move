@@ -100,6 +100,19 @@ $(document).ready(function () {
                 $("#station").text(station.name);
                 $("#adresse").text(station.address);
                 $("#velo").text(station.totalStands.availabilities.bikes);
+                if ($("#velo").text() != "0") {
+                    $("#buttonReserver").css("background-color", "#f56358")
+                    $('#buttonReserver').click(function (e) {
+                        $("#formulaire").hide();
+                        $("#signature").show();
+                    });
+                } else {
+                    $("#buttonReserver").css("background-color", "lightgray")
+                    $('#buttonReserver').click(function (e) {
+                        $("#formulaire").show();
+                        $("#signature").hide();
+                    });
+                }
                 $("#place").text(station.totalStands.availabilities.stands);
             })
         })
@@ -130,8 +143,6 @@ $(document).ready(function () {
 
     $('#buttonReserver').click(function (e) {
         e.preventDefault();
-        $("#formulaire").hide();
-        $("#signature").show();
     });
 
     $('#valider').click(function (e) {

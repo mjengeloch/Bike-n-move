@@ -201,12 +201,18 @@ h1{
   }
 
   button{
-    background-color: $color-roseRouge;
+    background-color: lightgray;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
     color: white;
     margin-top: 5px;
+  }
+}
+
+#validerButton{
+  button{
+    background-color: $color-roseRouge;
   }
 }
 
