@@ -72,8 +72,8 @@ header {
   background-size: cover;
   display: flex;
   align-items: center;
-  position: absolute;
-  z-index: 100;
+  position: fixed;
+  z-index: 2000;
   width: 100%;
 }
 
@@ -97,7 +97,7 @@ h1{
   color: $color-creme;
   font-size: 3em;
   position: relative;
-  top: 10rem;
+  top: 7rem;
 }
 
 /* FONCTIONNEMENT */
