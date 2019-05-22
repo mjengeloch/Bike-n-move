@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
     let diaporama = new Diaporama($(".diapositive"), $(".point"));
+    let minuteur = new Minuteur();
 
     /*---HEADER---*/
 
@@ -151,27 +152,26 @@ $(document).ready(function () {
         $("#lieu").show();
         $("#stationReserve").text($("#adresse").text());
         $("#minuteur").text("20:00");
-        intervalId = setInterval(diminuerCompteur, 1000);
+        minuteur.demarrerCompteur();
+        /* intervalId = setInterval(diminuerCompteur, 1000); */
     });
 
-    let dureeRestante = 20 * 60;
-
-    function diminuerCompteur() {
-        dureeRestante--;
-
+    /*     let dureeRestante = 20 * 60;
+        let intervalId
         let formatteur = new Intl.NumberFormat("fr-FR", { minimumIntegerDigits: 2 });
-
-        let minutes = Math.floor(dureeRestante / 60);
-        let secondes = dureeRestante % 60;
-
-        let compteurTexte = formatteur.format(minutes) + ":" + formatteur.format(secondes);
-
-        $("#minuteur").text(compteurTexte);
-
-        if (dureeRestante === 0) {
-            clearInterval(intervalId);
-        }
-    }
-
-    let intervalId;
+    
+        function diminuerCompteur() {
+            dureeRestante--;
+    
+            let minutes = Math.floor(dureeRestante / 60);
+            let secondes = dureeRestante % 60;
+    
+            let compteurTexte = formatteur.format(minutes) + ":" + formatteur.format(secondes);
+    
+            $("#minuteur").text(compteurTexte);
+    
+            if (dureeRestante === 0) {
+                clearInterval(intervalId);
+            }
+        }; */
 });
