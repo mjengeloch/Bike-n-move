@@ -22,6 +22,7 @@ class Minuteur {
         let compteurTexte = this.formatteur.format(minutes) + ":" + this.formatteur.format(secondes);
 
         $("#minuteur").text(compteurTexte);
+        sessionStorage.setItem("minuteur", document.getElementById("minuteur").textContent);
 
         if (this.dureeRestante === 0) {
             clearInterval(this.intervalId);

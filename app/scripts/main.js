@@ -128,7 +128,6 @@ $(document).ready(function () {
     });
 
     $("#signature").hide();
-    $("#lieu").hide();
 
     $('#buttonReserver').click(function (e) {
         e.preventDefault();
@@ -138,10 +137,10 @@ $(document).ready(function () {
         e.preventDefault();
         $("#formulaire").show();
         $("#signature").hide();
-        $("#lieu").show();
         $("#stationReserve").text($("#adresse").text());
         $("#minuteur").text("20:00");
         minuteur.demarrerCompteur();
+        populateSessionStorage();
     });
 
     /*---Local Storage---*/
@@ -170,23 +169,23 @@ $(document).ready(function () {
     /*---Session Storage---*/
 
     function populateSessionStorage() {
-        sessionStorage.setItem("lieu", document.getElementById("lieu").value);
-        sessionStorage.setItem("minuteur", document.getElementById("minuteur").value);
+        sessionStorage.setItem("lieu", document.getElementById("stationReserve").textContent);
+        sessionStorage.setItem("minuteur", document.getElementById("minuteur").textContent);
     }
 
     function chargeSessionStorage() {
-        let currentLieu = sessionStorage.getItem("lieu");
+        let currentLieu = sessionStorage.getItem("stationReserve");
         let currentMinuteur = sessionStorage.getItem("minuteur");
-        document.getElementById("lieu").value = currentLieu;
-        document.getElementById("minuteur").value = currentMinuteur;
+        document.getElementById("stationReserve").textContent = currentLieu;
+        document.getElementById("minuteur").textContent = currentMinuteur;
     }
 
-    if (!sessionStorage.getItem("lieu")) {
+    if (!sessionStorage.getItem("stationReserve")) {
         populateSessionStorage();
     } else {
         chargeSessionStorage();
     }
 
-    document.getElementById("lieu").onchange = populateSessionStorage;
+    document.getElementById("stationReserve").onchange = populateSessionStorage;
     document.getElementById("minuteur").onchange = populateSessionStorage;
 });
