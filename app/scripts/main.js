@@ -119,17 +119,6 @@ $(document).ready(function () {
         })
     })
 
-    /*---Local Storage---*/
-
-    if (!localStorage.getItem("prenom")) {
-        populateStorage();
-    } else {
-        chargeStorage();
-    }
-
-    document.getElementById("prenom").onchange = populateStorage;
-    document.getElementById("nom").onchange = populateStorage;
-
     /*---Signature---*/
 
     let signatureCanvas = new Canvas($("#zoneSignature"));
@@ -153,25 +142,51 @@ $(document).ready(function () {
         $("#stationReserve").text($("#adresse").text());
         $("#minuteur").text("20:00");
         minuteur.demarrerCompteur();
-        /* intervalId = setInterval(diminuerCompteur, 1000); */
     });
 
-    /*     let dureeRestante = 20 * 60;
-        let intervalId
-        let formatteur = new Intl.NumberFormat("fr-FR", { minimumIntegerDigits: 2 });
-    
-        function diminuerCompteur() {
-            dureeRestante--;
-    
-            let minutes = Math.floor(dureeRestante / 60);
-            let secondes = dureeRestante % 60;
-    
-            let compteurTexte = formatteur.format(minutes) + ":" + formatteur.format(secondes);
-    
-            $("#minuteur").text(compteurTexte);
-    
-            if (dureeRestante === 0) {
-                clearInterval(intervalId);
-            }
-        }; */
+    /*---Local Storage---*/
+
+    function populateLocalStorage() {
+        localStorage.setItem("prenom", document.getElementById("prenom").value);
+        localStorage.setItem("nom", document.getElementById("nom").value);
+    }
+
+    function chargeLocalStorage() {
+        let currentPrenom = localStorage.getItem("prenom");
+        let currentNom = localStorage.getItem("nom");
+        document.getElementById("prenom").value = currentPrenom;
+        document.getElementById("nom").value = currentNom;
+    }
+
+    if (!localStorage.getItem("prenom")) {
+        populateLocalStorage();
+    } else {
+        chargeLocalStorage();
+    }
+
+    document.getElementById("prenom").onchange = populateLocalStorage;
+    document.getElementById("nom").onchange = populateLocalStorage;
+
+    /*---Session Storage---*/
+
+    function populateSessionStorage() {
+        sessionStorage.setItem("lieu", document.getElementById("lieu").value);
+        sessionStorage.setItem("minuteur", document.getElementById("minuteur").value);
+    }
+
+    function chargeSessionStorage() {
+        let currentLieu = sessionStorage.getItem("lieu");
+        let currentMinuteur = sessionStorage.getItem("minuteur");
+        document.getElementById("lieu").value = currentLieu;
+        document.getElementById("minuteur").value = currentMinuteur;
+    }
+
+    if (!sessionStorage.getItem("lieu")) {
+        populateSessionStorage();
+    } else {
+        chargeSessionStorage();
+    }
+
+    document.getElementById("lieu").onchange = populateSessionStorage;
+    document.getElementById("minuteur").onchange = populateSessionStorage;
 });
