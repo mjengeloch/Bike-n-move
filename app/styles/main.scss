@@ -114,9 +114,10 @@ h1{
   position: absolute;
   z-index: 2;
   margin-top: 50px;
-  background-color: #ffffffbd;
+  background-color: #ffffffd0;
   border: 2px solid $color-bleu;
   border-radius: 10px;
+  box-shadow: 2px 5px 8px lightgrey;
   p{
     font-size: 1.5em;
     text-align: center;
@@ -128,6 +129,7 @@ h1{
   display: none;
   img{
     width: 100%;
+    border-radius: 5px;
   }
 }
 
