@@ -9,6 +9,7 @@ class Minuteur {
     demarrerCompteur() {
         clearInterval(this.intervalId);
         this.intervalId = null;
+        this.dureeRestante = 20 * 60;
         let t = this;
         this.intervalId = setInterval(function () { t.diminuerCompteur(); }, 1000);
     }

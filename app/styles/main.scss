@@ -6,7 +6,7 @@ $color-roseRouge: #f56358;
 $color-noir: #323232;
 
 .container{
-  padding-right: 15px;
+  padding-right: 20px;
   padding-left: 20px;
   margin-right: auto;
   margin-left: auto;
@@ -106,8 +106,13 @@ h1{
   padding-top: 90px;
 }
 
-#carrousel li{
+#carrousel {
+  ul{
+  padding: 0;
+  }
+  li{
   list-style-type: none;
+}
 }
 
 .instruction{
@@ -119,7 +124,7 @@ h1{
   border-radius: 10px;
   box-shadow: 2px 5px 8px lightgrey;
   p{
-    font-size: 1.5em;
+    font-size: 1.25em;
     text-align: center;
     margin: 10px 0 10px 0;
   }
@@ -138,6 +143,10 @@ h1{
   font-size: 7em;
   position: absolute;
   top:40%;
+}
+
+.fa-chevron-left{
+  left: -25px;
 }
 
 .fa-chevron-right{
@@ -161,7 +170,11 @@ h1{
 .boutons{
   position: absolute;
   bottom: 11px;
-  left: 500px;
+  left: 475px;
+}
+
+ol{
+  padding: 0;
 }
 
 /* RESERVER */
@@ -278,10 +291,91 @@ footer{
   }
 }
 
-/* [class*="col-"], footer {
-  background-color: lightgreen;
-  outline: 2px solid black;
-  border-radius: 6px;
-  line-height: 40px;
-  text-align: center;
-} */
+/*MEDIA QUERIES*/
+
+/*<----------------Résolution inférieur à 1024px---------------->*/
+
+@media all and (max-width: 1024px){
+
+  /*FONCTIONNEMENT*/
+  .boutons{
+    left: 390px;
+  }
+}
+
+/*<----------------Résolution inférieur à 768px---------------->*/
+@media all and (max-width: 768px){
+
+  /*HEADER*/
+  h1{
+    font-size: 1.75em;
+  }
+  
+  /*FONCTIONNEMENT*/
+
+  .instruction{
+    position: initial;
+    z-index: 2;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .boutons{
+    left: 275px;
+  }
+  
+  /*RESERVER*/
+
+  #detailStation{
+    margin: 15px;
+  }
+}
+
+/*<----------------Résolution inférieur à 425px---------------->*/
+
+@media all and (max-device-width: 425px){
+  /*FONCTIONNEMENT*/
+
+  .instruction{
+    margin: 10px;
+    p{
+      font-size: 1em;
+    }
+  }
+
+  .fa-chevron-left, .fa-chevron-right{
+    font-size: 4em;
+  }
+  
+  .fa-chevron-left{
+    left: 0;
+  }
+  
+  .fa-chevron-right{
+    right: 0;
+  }
+
+  .boutons{
+    left: 125px;
+  }
+} 
+
+  /*<----------------Résolution inférieur à 375px---------------->*/
+
+  @media all and (max-device-width: 375px){
+
+    /*FONCTIONNEMENT*/
+    .boutons{
+      left: 95px;
+    }
+  }
+
+    /*<----------------Résolution inférieur à 320px---------------->*/
+
+    @media all and (max-device-width: 320px){
+
+      /*FONCTIONNEMENT*/
+      .boutons{
+        left: 65px;
+      }
+    }
