@@ -137,6 +137,7 @@ $(document).ready(function () {
         e.preventDefault();
         $("#formulaire").show();
         $("#signature").hide();
+        $("#EtatReserve").text("Réservation en cours");
         $("#stationReserve").text($("#adresse").text());
         $("#minuteur").text("20:00");
         minuteur.demarrerCompteur();
