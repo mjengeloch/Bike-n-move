@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     let diaporama = new Diaporama($(".diapositive"), $(".point"));
     let minuteur = new Minuteur();
+    let storage = new Storage();
 
     /*---HEADER---*/
 
@@ -141,52 +142,28 @@ $(document).ready(function () {
         $("#stationReserve").text($("#adresse").text());
         $("#minuteur").text("20:00");
         minuteur.demarrerCompteur();
-        populateSessionStorage();
+        storage.populateSessionStorage();
     });
 
     /*---Local Storage---*/
 
-    function populateLocalStorage() {
-        localStorage.setItem("prenom", document.getElementById("prenom").value);
-        localStorage.setItem("nom", document.getElementById("nom").value);
-    }
-
-    function chargeLocalStorage() {
-        let currentPrenom = localStorage.getItem("prenom");
-        let currentNom = localStorage.getItem("nom");
-        document.getElementById("prenom").value = currentPrenom;
-        document.getElementById("nom").value = currentNom;
-    }
-
     if (!localStorage.getItem("prenom")) {
-        populateLocalStorage();
+        storage.populateLocalStorage();
     } else {
-        chargeLocalStorage();
+        storage.chargeLocalStorage();
     }
 
-    document.getElementById("prenom").onchange = populateLocalStorage;
-    document.getElementById("nom").onchange = populateLocalStorage;
+    document.getElementById("prenom").onchange = storage.populateLocalStorage;
+    document.getElementById("nom").onchange = storage.populateLocalStorage;
 
     /*---Session Storage---*/
 
-    function populateSessionStorage() {
-        sessionStorage.setItem("lieu", document.getElementById("stationReserve").textContent);
-        sessionStorage.setItem("minuteur", document.getElementById("minuteur").textContent);
-    }
-
-    function chargeSessionStorage() {
-        let currentLieu = sessionStorage.getItem("stationReserve");
-        let currentMinuteur = sessionStorage.getItem("minuteur");
-        document.getElementById("stationReserve").textContent = currentLieu;
-        document.getElementById("minuteur").textContent = currentMinuteur;
-    }
-
     if (!sessionStorage.getItem("stationReserve")) {
-        populateSessionStorage();
+        storage.populateSessionStorage();
     } else {
-        chargeSessionStorage();
+        storage.chargeSessionStorage();
     }
 
-    document.getElementById("stationReserve").onchange = populateSessionStorage;
-    document.getElementById("minuteur").onchange = populateSessionStorage;
+    document.getElementById("stationReserve").onchange = storage.populateSessionStorage;
+    document.getElementById("minuteur").onchange = storage.populateSessionStorage;
 });
