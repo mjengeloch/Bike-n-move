@@ -3,6 +3,7 @@ $(document).ready(function () {
     let diaporama = new Diaporama($(".diapositive"), $(".point"));
     let minuteur = new Minuteur();
     let storage = new Storage();
+    let signatureCanvas = new Canvas($("#zoneSignature"));
 
     /*---HEADER---*/
 
@@ -103,17 +104,13 @@ $(document).ready(function () {
                 $("#adresse").text(station.address);
                 $("#velo").text(station.totalStands.availabilities.bikes);
                 if ($("#velo").text() != "0") {
-                    $("#buttonReserver").css("background-color", "#f56358")
+                    $("#buttonReserver").removeAttr("disabled");
                     $('#buttonReserver').click(function (e) {
                         $("#formulaire").hide();
                         $("#signature").show();
                     });
                 } else {
-                    $("#buttonReserver").css("background-color", "lightgray")
-                    $('#buttonReserver').click(function (e) {
-                        $("#formulaire").show();
-                        $("#signature").hide();
-                    });
+                    $("#buttonReserver").attr("disabled");
                 }
                 $("#place").text(station.totalStands.availabilities.stands);
             })
@@ -121,8 +118,6 @@ $(document).ready(function () {
     })
 
     /*---Signature---*/
-
-    let signatureCanvas = new Canvas($("#zoneSignature"));
 
     $("#clearButton").click(function () {
         signatureCanvas.clearSignature();
@@ -147,7 +142,7 @@ $(document).ready(function () {
 
     /*---Local Storage---*/
 
-    if (!localStorage.getItem("prenom")) {
+    if (!localStorage.getItem("prenom") || !localStorage.getItem("nom")) {
         storage.populateLocalStorage();
     } else {
         storage.chargeLocalStorage();
@@ -158,7 +153,7 @@ $(document).ready(function () {
 
     /*---Session Storage---*/
 
-    if (!sessionStorage.getItem("stationReserve")) {
+    if (!sessionStorage.getItem("stationReserve") || !sessionStorage.getItem("minuteur")) {
         storage.populateSessionStorage();
     } else {
         storage.chargeSessionStorage();

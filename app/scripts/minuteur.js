@@ -27,6 +27,7 @@ class Minuteur {
 
         if (this.dureeRestante === 0) {
             clearInterval(this.intervalId);
+            sessionStorage.clear();
             $("#EtatReserve").text("Pas de réservation en cours");
         }
     }

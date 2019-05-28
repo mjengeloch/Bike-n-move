@@ -216,12 +216,15 @@ ol{
   }
 
   button{
-    background-color: lightgray;
+    background-color: $color-roseRouge;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
     color: white;
     margin-top: 5px;
+    &:disabled{
+      background-color: lightgray;
+    }
   }
 }
 
@@ -249,6 +252,7 @@ canvas{
   cursor: crosshair;
   border: $color-roseRouge 2px solid;
   border-radius: 5px;
+  width: 100%;
 }
 
 /* MA RESERVATION */
