@@ -1,29 +1,29 @@
 $(document).ready(function () {
 
-    let diaporama = new Diaporama($(".diapositive"), $(".point"));
+    let diaporama = new Diaporama($('.diapositive'), $('.point'));
     let minuteur = new Minuteur();
     let storage = new Storage();
-    let signatureCanvas = new Canvas($("#zoneSignature"));
+    let signatureCanvas = new Canvas($('#zoneSignature'));
 
     /*---HEADER---*/
 
-    $("header").click(function () {
-        $("header").animate({
-            bottom: "100%",
-            opacity: "0.1",
+    $('header').click(function () {
+        $('header').animate({
+            bottom: '100%',
+            opacity: '0.1',
         }, 2000)
-        $("body").css("overflow-y", "visible")
+        $('body').css('overflow-y', 'visible')
         diaporama.demarrerDiaporama();
     })
 
 
     /*---Diapositive---*/
 
-    $(".next").click(function () {
+    $('.next').click(function () {
         diaporama.diapositiveSuivante();
     });
 
-    $(".prev").click(function () {
+    $('.prev').click(function () {
         diaporama.diapositivePrecedente();
     });
 
@@ -38,16 +38,16 @@ $(document).ready(function () {
         }
     })
 
-    $("#play").hide()
+    $('#play').hide()
 
     $('#play').click(function () {
-        $("#play").hide()
-        $("#pause").show()
+        $('#play').hide()
+        $('#pause').show()
         diaporama.demarrerDiaporama();
     });
     $('#pause').click(function () {
-        $("#play").show()
-        $("#pause").hide()
+        $('#play').show()
+        $('#pause').hide()
         diaporama.pauseDiaporama();
     });
 
@@ -62,68 +62,68 @@ $(document).ready(function () {
     }).addTo(mymap);
 
     let markerMap = L.icon({
-        iconUrl: "images/marker.png",
+        iconUrl: 'images/marker.png',
 
         iconSize: [33, 52],
         iconAnchor: [15, 51]
     });
 
     let markerMapSelected = L.icon({
-        iconUrl: "images/markerSelec.png",
+        iconUrl: 'images/markerSelec.png',
 
         iconSize: [33, 52],
         iconAnchor: [15, 51]
     });
 
     let markerList = [];
-    ajaxGet("https://api.jcdecaux.com/vls/v3/stations?contract=nantes&apiKey=c05f61c194281ba2e1e2e03cb7d62ed92e991968", function (reponse) {
+    ajaxGet('https://api.jcdecaux.com/vls/v3/stations?contract=nantes&apiKey=c05f61c194281ba2e1e2e03cb7d62ed92e991968', function (reponse) {
         let stations = JSON.parse(reponse);
         stations.forEach(function (station) {
             let marker = L.marker([station.position.latitude, station.position.longitude], { icon: markerMap }).addTo(mymap);
             markerList.push(marker);
-            marker.addEventListener("click", function () {
+            marker.addEventListener('click', function () {
                 markerList.forEach(marker => marker.setIcon(markerMap));
                 this.setIcon(markerMapSelected);
-                $("#status").text(station.status);
+                $('#status').text(station.status);
 
-                if ($("#status").text() === "OPEN") {
-                    $("#status").css("display", "inline-block");
-                    $("#status").css("background-color", "green");
+                if ($('#status').text() === 'OPEN') {
+                    $('#status').css('display', 'inline-block');
+                    $('#status').css('background-color', 'green');
 
-                } else if ($("status").text() === "CLOSED") {
-                    $("#status").css("display", "inline-block");
-                    $("#status").css("background-color", "red");
+                } else if ($('status').text() === 'CLOSED') {
+                    $('#status').css('display', 'inline-block');
+                    $('#status').css('background-color', 'red');
 
                 } else {
-                    $("#status").css("display", "inline-block");
-                    $("#status").css("background-color", "lightgray");
-                    $("#status").text("Inconnu");
+                    $('#status').css('display', 'inline-block');
+                    $('#status').css('background-color', 'lightgray');
+                    $('#status').text('Inconnu');
                 }
 
-                $("#station").text(station.name);
-                $("#adresse").text(station.address);
-                $("#velo").text(station.totalStands.availabilities.bikes);
-                if ($("#velo").text() != "0") {
-                    $("#buttonReserver").removeAttr("disabled");
+                $('#station').text(station.name);
+                $('#adresse').text(station.address);
+                $('#velo').text(station.totalStands.availabilities.bikes);
+                if ($('#velo').text() != '0') {
+                    $('#buttonReserver').removeAttr('disabled');
                     $('#buttonReserver').click(function (e) {
-                        $("#formulaire").hide();
-                        $("#signature").show();
+                        $('#formulaire').hide();
+                        $('#signature').show();
                     });
                 } else {
-                    $("#buttonReserver").attr("disabled");
+                    $('#buttonReserver').attr('disabled');
                 }
-                $("#place").text(station.totalStands.availabilities.stands);
+                $('#place').text(station.totalStands.availabilities.stands);
             })
         })
     })
 
     /*---Signature---*/
 
-    $("#clearButton").click(function () {
+    $('#clearButton').click(function () {
         signatureCanvas.clearSignature();
     });
 
-    $("#signature").hide();
+    $('#signature').hide();
 
     $('#buttonReserver').click(function (e) {
         e.preventDefault();
@@ -131,34 +131,34 @@ $(document).ready(function () {
 
     $('#valider').click(function (e) {
         e.preventDefault();
-        $("#formulaire").show();
-        $("#signature").hide();
-        $("#EtatReserve").text("Réservation en cours");
-        $("#stationReserve").text($("#adresse").text());
-        $("#minuteur").text("20:00");
+        $('#formulaire').show();
+        $('#signature').hide();
+        $('#EtatReserve').text('Réservation en cours');
+        $('#stationReserve').text($('#adresse').text());
+        $('#minuteur').text('20:00');
         minuteur.demarrerCompteur();
         storage.populateSessionStorage();
     });
 
     /*---Local Storage---*/
 
-    if (!localStorage.getItem("prenom") || !localStorage.getItem("nom")) {
+    if (!localStorage.getItem('prenom') || !localStorage.getItem('nom')) {
         storage.populateLocalStorage();
     } else {
         storage.chargeLocalStorage();
     }
 
-    document.getElementById("prenom").onchange = storage.populateLocalStorage;
-    document.getElementById("nom").onchange = storage.populateLocalStorage;
+    document.getElementById('prenom').onchange = storage.populateLocalStorage;
+    document.getElementById('nom').onchange = storage.populateLocalStorage;
 
     /*---Session Storage---*/
 
-    if (!sessionStorage.getItem("stationReserve") || !sessionStorage.getItem("minuteur")) {
+    if (!sessionStorage.getItem('stationReserve') || !sessionStorage.getItem('minuteur')) {
         storage.populateSessionStorage();
     } else {
         storage.chargeSessionStorage();
     }
 
-    document.getElementById("stationReserve").onchange = storage.populateSessionStorage;
-    document.getElementById("minuteur").onchange = storage.populateSessionStorage;
+    document.getElementById('stationReserve').onchange = storage.populateSessionStorage;
+    document.getElementById('minuteur').onchange = storage.populateSessionStorage;
 });

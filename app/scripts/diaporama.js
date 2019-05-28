@@ -11,10 +11,10 @@ class Diaporama {
     afficheElementCourant() {
         let currentDiapo = this.diapos.eq(this.indexDiapoCourant);
         let currentSelecteur = this.selecteur.eq(this.indexDiapoCourant);
-        this.diapos.css("display", "none");
-        this.selecteur.css("color", "#f5625886");
-        currentDiapo.css("display", "block");
-        currentSelecteur.css("color", "#f56358");
+        this.diapos.css('display', 'none');
+        this.selecteur.css('color', '#f5625886');
+        currentDiapo.css('display', 'block');
+        currentSelecteur.css('color', '#f56358');
     }
 
     demarrerDiaporama() {
