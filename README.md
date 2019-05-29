@@ -6,7 +6,7 @@ Vous pouvez retrouver ce projet sur GitHub à ce [lien](https://github.com/Mirim
 
 ce projet a été conçus avec [Yeoman](https://yeoman.io/) pour simplifier la mise en place et avoir de bonnes partiques dans la/les future(s) entreprise(s).
 
-### Langage et librairie
+### Langages et librairies
 Voici la liste des langages utilisés :
 * HTML
 * CSS
