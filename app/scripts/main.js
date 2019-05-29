@@ -117,17 +117,12 @@ $(document).ready(function () {
         })
     })
 
-    /*---Signature---*/
-
-    $('#clearButton').click(function () {
-        signatureCanvas.clearSignature();
-    });
-
-    $('#signature').hide();
-
     $('#buttonReserver').click(function (e) {
         e.preventDefault();
     });
+
+    /*---Signature---*/
+    $('#signature').hide();
 
     $('#valider').click(function (e) {
         e.preventDefault();
@@ -139,6 +134,11 @@ $(document).ready(function () {
         minuteur.demarrerCompteur();
         storage.populateSessionStorage();
     });
+
+    $('#clearButton').click(function () {
+        signatureCanvas.clearSignature();
+    });
+
 
     /*---Local Storage---*/
 
