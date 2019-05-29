@@ -2,9 +2,11 @@
 Projet 3 du parcourt Développeur Web Junior chez OpenClassroom – Marie-Jo Engeloch
 
 ## Informations
-Vous pouvez retrouver ce projet sur GitHub à ce [lien](https://github.com/Mirimagic/Bike-n-move).
+Pour retrouvez le site en ligne, voici l'URL : [http://mjengeloch.com/_bikeandmove/](http://mjengeloch.com/_bikeandmove/).
 
-ce projet a été conçus avec [Yeoman](https://yeoman.io/) pour simplifier la mise en place et avoir de bonnes partiques dans la/les future(s) entreprise(s).
+Vous pouvez retrouver ce projet sur GitHub via ce [lien](https://github.com/Mirimagic/Bike-n-move).
+
+Il a été conçus avec [Yeoman](https://yeoman.io/) pour simplifier la mise en place et avoir de bonnes partiques dans la/les future(s) entreprise(s).
 
 ### Langages et librairies
 Voici la liste des langages utilisés :
