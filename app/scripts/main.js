@@ -121,7 +121,6 @@ $(document).ready(function () {
     });
 
     $(".formLabel").on("keyup", function () {
-        console.log("test")
         if ($("#velo").text() != "0" && $("#prenom").val() != "" && $("#nom").val() != "") {
             $('#buttonReserver').removeAttr('disabled');
         } else {
