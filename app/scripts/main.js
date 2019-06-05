@@ -105,7 +105,7 @@ $(document).ready(function () {
                 $('#velo').text(station.totalStands.availabilities.bikes);
                 $('#place').text(station.totalStands.availabilities.stands);
 
-                if ($("#velo").text() != "0" && $("#prenom").val() != "" && $("#nom").val() != "") {
+                if ($('#velo').text() != '0' && $('#prenom').val() != '' && $('#nom').val() != '') {
                     $('#buttonReserver').removeAttr('disabled');
                 } else {
                     $('#buttonReserver').attr('disabled', 'disabled');
@@ -120,8 +120,8 @@ $(document).ready(function () {
         $('#signature').show();
     });
 
-    $(".formLabel").on("keyup", function () {
-        if ($("#velo").text() != "0" && $("#prenom").val() != "" && $("#nom").val() != "") {
+    $('.formLabel').on('keyup', function () {
+        if ($('#velo').text() != '0' && $('#prenom').val() != '' && $('#nom').val() != '') {
             $('#buttonReserver').removeAttr('disabled');
         } else {
             $('#buttonReserver').attr('disabled', 'disabled');
