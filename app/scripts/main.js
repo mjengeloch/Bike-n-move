@@ -81,7 +81,7 @@ $(document).ready(function () {
         stations.forEach(function (station) {
             let marker = L.marker([station.position.latitude, station.position.longitude], { icon: markerMap }).addTo(mymap);
             markerList.push(marker);
-            marker.addEventListener('click', function () {
+            marker.on('click', function () {
                 markerList.forEach(marker => marker.setIcon(markerMap));
                 this.setIcon(markerMapSelected);
                 $('#status').text(station.status);
@@ -103,20 +103,30 @@ $(document).ready(function () {
                 $('#station').text(station.name);
                 $('#adresse').text(station.address);
                 $('#velo').text(station.totalStands.availabilities.bikes);
-                if ($('#velo').text() != '0' && $("#prenom").val() != "") {
+                $('#place').text(station.totalStands.availabilities.stands);
+
+                if ($("#velo").text() != "0" && $("#prenom").val() != "" && $("#nom").val() != "") {
                     $('#buttonReserver').removeAttr('disabled');
-                    $('#buttonReserver').click(function (e) {
-                        e.preventDefault();
-                        $('#formulaire').hide();
-                        $('#signature').show();
-                    });
                 } else {
                     $('#buttonReserver').attr('disabled', 'disabled');
                 }
-
-                $('#place').text(station.totalStands.availabilities.stands);
             })
         })
+    })
+
+    $('#buttonReserver').click(function (e) {
+        e.preventDefault();
+        $('#formulaire').hide();
+        $('#signature').show();
+    });
+
+    $(".formLabel").on("keyup", function () {
+        console.log("test")
+        if ($("#velo").text() != "0" && $("#prenom").val() != "" && $("#nom").val() != "") {
+            $('#buttonReserver').removeAttr('disabled');
+        } else {
+            $('#buttonReserver').attr('disabled', 'disabled');
+        }
     })
 
     /*---Signature---*/
