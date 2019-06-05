@@ -103,23 +103,21 @@ $(document).ready(function () {
                 $('#station').text(station.name);
                 $('#adresse').text(station.address);
                 $('#velo').text(station.totalStands.availabilities.bikes);
-                if ($('#velo').text() != '0') {
+                if ($('#velo').text() != '0' && $("#prenom").val() != "") {
                     $('#buttonReserver').removeAttr('disabled');
                     $('#buttonReserver').click(function (e) {
+                        e.preventDefault();
                         $('#formulaire').hide();
                         $('#signature').show();
                     });
                 } else {
-                    $('#buttonReserver').attr('disabled');
+                    $('#buttonReserver').attr('disabled', 'disabled');
                 }
+
                 $('#place').text(station.totalStands.availabilities.stands);
             })
         })
     })
-
-    $('#buttonReserver').click(function (e) {
-        e.preventDefault();
-    });
 
     /*---Signature---*/
     $('#signature').hide();
