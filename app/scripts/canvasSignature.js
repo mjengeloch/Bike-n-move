@@ -42,6 +42,7 @@ class Canvas {
         this.canvas.addEventListener('mousedown', e => {
             this.isDrawing = true;
             [this.lastX, this.lastY] = [e.offsetX, e.offsetY];
+            $('#valider').removeAttr('disabled');
         })
         this.canvas.addEventListener('touchstart', e => {
             if (e.touches && e.touches.length == 1) {
@@ -51,6 +52,7 @@ class Canvas {
                 let touchY = touch.pageY - touch.target.offsetTop;
                 [this.lastX, this.lastY] = [touchX, touchY];
                 e.preventDefault();
+                $('#valider').removeAttr('disabled');
             }
         });
 
