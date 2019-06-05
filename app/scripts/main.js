@@ -144,6 +144,7 @@ $(document).ready(function () {
 
     $('#clearButton').click(function () {
         signatureCanvas.clearSignature();
+        $('#valider').attr('disabled', 'disabled');
     });
 
 

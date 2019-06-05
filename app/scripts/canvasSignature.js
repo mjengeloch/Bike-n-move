@@ -29,7 +29,7 @@ class Canvas {
         this.ctx.moveTo(this.lastX, this.lastY);
         this.ctx.lineTo(x, y);
         this.ctx.stroke();
-        [this.lastX, this.lastY] = [x, y]
+        [this.lastX, this.lastY] = [x, y];
     }
 
     clearSignature() {
